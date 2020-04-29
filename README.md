@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project : Webcam Express
+
+## Project Actors
+
+This project was made by Anthony Lucci
+
 ## Available Scripts
 
 In the project directory, you can run:
