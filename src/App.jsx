@@ -17,6 +17,7 @@ class App extends React.Component {
       apiData: { webcams: [] },
       currentPage: 'homepage',
       category: RandomQuote(),
+      categoryTwo: RandomQuote(),
     };
   }
 
@@ -24,13 +25,13 @@ class App extends React.Component {
   componentDidMount() {
     Axios.all([
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTwo}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
     ])
       .then(Axios.spread((response1, response2, response3) => {
