@@ -28,9 +28,8 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <header>
-            <WindyWebcam apiData={this.state.apiData} />
-          </header>
+          <Homepage />
+          <WindyWebcam apiData={this.state.apiData} />
         </div>
         <div>
           <WindyImages apiData={this.state.apiData} />
