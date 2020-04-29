@@ -1,11 +1,9 @@
-import React from 'react';
 
 const RandomQuote = () => {
   const textArray = [
     'beach',
     'forest',
     'moutain',
-    'water',
     'harbor',
     'bay',
     'coast',

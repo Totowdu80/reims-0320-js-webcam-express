@@ -12,7 +12,7 @@ class WindyWebcam extends React.Component {
     const apiDatabis = this.props.apiData
     return (
       <div className="Webcam">
-        <iframe src={apiDatabis.apiData1.result.webcams[0]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
+        <iframe src={apiDatabis.apiData1?.result.webcams[0]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
         <p>test</p>
       </div>
     );

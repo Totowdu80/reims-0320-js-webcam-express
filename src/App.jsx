@@ -29,11 +29,15 @@ class App extends React.Component {
       Axios.get(
         `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
+      Axios.get(
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+      ),
     ])
-      .then(Axios.spread((response1, response2) => {
+      .then(Axios.spread((response1, response2, response3) => {
         const allData = {
           apiData1: response1.data,
           apiData2: response2.data,
+          apiData3: response3.data,
         };
         this.setState({ apiData: allData });
       }));

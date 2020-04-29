@@ -12,12 +12,11 @@ class WindyImages extends React.Component {
     const apiDatabis = this.props.apiData
     return (
       <div className="Images">
-        <p>test image</p>
+        <img src={apiDatabis.apiData2?.result.webcams[0]?.image.daylight.preview} alt="windyImage" />
+        <img src={apiDatabis.apiData3?.result.webcams[4]?.image.daylight.preview} alt="windyImage" />
       </div>
     );
   }
 }
 
 export default WindyImages;
-//<img src={apiDatabis.webcams[0]?.image.current.preview} alt="windyImage" />
-  //      <img src={apiDatabis.webcams[4]?.image.current.preview} alt="windyImage" />
