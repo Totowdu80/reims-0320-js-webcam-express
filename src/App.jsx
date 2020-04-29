@@ -3,19 +3,24 @@ import Axios from 'axios';
 import WindyImages from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
+import RandomQuote from './components/RandomQuote';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiData: { webcams: [] },
+      apiData: {
+        webcams: [],
+        category: '',
+      },
     };
   }
 
+
   componentDidMount() {
     Axios.get(
-      'https://api.windy.com/api/webcams/v2/list/category=beach/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4'
+      `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`
     )
       .then((response) => response.data)
       .then((data) => {
@@ -23,6 +28,7 @@ class App extends React.Component {
         this.setState({ apiData: dataBase });
       });
   }
+
 
   render() {
     return (
