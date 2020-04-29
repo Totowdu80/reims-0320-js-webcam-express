@@ -11,9 +11,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiData: {
-        webcams: [],
-        category: '',
+      apiData: { webcams: [] },
+      currentPage: 'homepage',
+      category: '',
       },
     };
   }
@@ -34,7 +34,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className={this.state.currentPage === 'homepage' ? 'homepageON' : 'affichageOFF'}>
           <Homepage />
         </div>
         <div className="Webcam">

@@ -40,3 +40,7 @@
 body {
   background-color: #FCEABC;
 }
+
+.affichageOFF {
+  display: none;
+}
