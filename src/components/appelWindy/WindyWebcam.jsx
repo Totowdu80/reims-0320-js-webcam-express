@@ -1,5 +1,5 @@
 import React from 'react';
-import Axios from 'axios';
+import './Windy.css';
 
 class WindyWebcam extends React.Component {
   constructor(props) {
@@ -11,10 +11,8 @@ class WindyWebcam extends React.Component {
   render() {
     const apiDatabis = this.props.apiData
     return (
-      <div className="App">
-        <header className="App-header">
-          <iframe src={apiDatabis.webcams[0]?.player.day.embed} title="windyWebcam" />
-        </header>
+      <div className="Webcam">
+        <iframe src={apiDatabis.webcams[0]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
       </div>
     );
   }
