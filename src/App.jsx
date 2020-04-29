@@ -3,7 +3,7 @@ import Axios from 'axios';
 import WindyImages from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
-import RandomQuote from './components/RandomQuote';
+import RandomQuote from './components/RandomQuote/RandomQuote';
 import GameStart from './components/GameStart/GameStart';
 import GameWin from './components/GameWin/GameWin';
 import GameLose from './components/GameLose/GameLose';
@@ -17,6 +17,7 @@ class App extends React.Component {
       apiData: { webcams: [] },
       currentPage: 'homepage',
       category: RandomQuote(),
+      categoryTwo: RandomQuote(),
     };
   }
 
@@ -24,16 +25,20 @@ class App extends React.Component {
   componentDidMount() {
     Axios.all([
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTwo}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+      ),
+      Axios.get(
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
     ])
-      .then(Axios.spread((response1, response2) => {
+      .then(Axios.spread((response1, response2, response3) => {
         const allData = {
           apiData1: response1.data,
           apiData2: response2.data,
+          apiData3: response3.data,
         };
         this.setState({ apiData: allData });
       }));
