@@ -4,6 +4,7 @@ import WindyImages from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
 import RandomQuote from './components/RandomQuote';
+import './App.css';
 
 
 class App extends React.Component {
@@ -35,6 +36,8 @@ class App extends React.Component {
       <div>
         <div>
           <Homepage />
+        </div>
+        <div className="Webcam">
           <WindyWebcam apiData={this.state.apiData} />
         </div>
         <div>
