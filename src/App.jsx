@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import Windy from './components/appelWindy/WindyImages';
+import WindyImages from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 
 
@@ -32,7 +32,7 @@ class App extends React.Component {
           </header>
         </div>
         <div>
-          <Windy apiData={this.state.apiData} />
+          <WindyImages apiData={this.state.apiData} />
         </div>
       </div>
     );

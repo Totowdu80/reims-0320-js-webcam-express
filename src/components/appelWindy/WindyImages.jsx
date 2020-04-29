@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Windy extends React.Component {
+class WindyImages extends React.Component {
   constructor(props) {
     super(props);
     this.state = { images: '' };
@@ -20,4 +20,4 @@ class Windy extends React.Component {
   }
 }
 
-export default Windy;
+export default WindyImages;
