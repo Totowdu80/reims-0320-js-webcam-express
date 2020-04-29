@@ -1,0 +1,10 @@
+.Webcam{
+  display: flex;
+  justify-content: center;
+}
+
+.Images{
+  display: flex;
+  justify-content: space-around;
+  
+}
