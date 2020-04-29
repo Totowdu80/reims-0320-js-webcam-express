@@ -16,20 +16,41 @@ class App extends React.Component {
     this.state = {
       apiData: { webcams: [] },
       currentPage: 'homepage',
-      category: 'landscape',
+      category: RandomQuote(),
     };
   }
 
 
   componentDidMount() {
-    Axios.get(
-      `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`
-    )
-      .then((response) => response.data)
-      .then((data) => {
+    Axios.all([
+      Axios.get(
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+      ),
+      Axios.get(
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+      ),
+    ])
+      .then(Axios.spread((response1, response2) => {
+        const allData = {
+          apiData1: response1.data,
+          apiData2: response2.data,
+        };
+        this.setState({ apiData: allData });
+      }));
+    /* .then(Axios.spread((...responses) => {
+        let allData = [];
+        responses.forEach((response) => {
+          allData = [...allData, response.data];
+        });
+        this.setState({ apiData: allData });
+      }));
+      */
+
+    /* .then((data) => {
         const dataBase = data.result;
         this.setState({ apiData: dataBase });
       });
+    */
   }
 
 
