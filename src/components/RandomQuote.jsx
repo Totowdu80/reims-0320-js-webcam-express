@@ -6,7 +6,6 @@ const RandomQuote = () => {
     'forest',
     'moutain',
     'water',
-    'underwater',
     'harbor',
     'bay',
     'coast',
