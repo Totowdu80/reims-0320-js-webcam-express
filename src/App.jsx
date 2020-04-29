@@ -3,7 +3,7 @@ import Axios from 'axios';
 import WindyImages from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
-import RandomQuote from './components/RandomQuote';
+import RandomQuote from './components/RandomQuote/RandomQuote';
 import GameStart from './components/GameStart/GameStart';
 import GameWin from './components/GameWin/GameWin';
 import GameLose from './components/GameLose/GameLose';
