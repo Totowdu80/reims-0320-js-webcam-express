@@ -3,6 +3,7 @@ import Axios from 'axios';
 import Windy from './components/appelWindy/WindyImages';
 import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
+import './App.css';
 
 
 class App extends React.Component {
@@ -10,13 +11,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       apiData: { webcams: [] },
+      currentPage: 'homepage',
     };
   }
 
   componentDidMount() {
     Axios.get(
       'https://api.windy.com/api/webcams/v2/list/category=beach/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4'
-    )
+          )
       .then((response) => response.data)
       .then((data) => {
         const dataBase = data.result;
@@ -27,12 +29,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <header>
-            <WindyWebcam apiData={this.state.apiData} />
-          </header>
+        <div className={this.state.currentPage === 'homepage' ? 'homepageON' : 'affichageOFF'}>
+          <Homepage />
         </div>
-        <div>
+        <div className={this.state.currentPage === 'test' ? 'testON' : 'affichageOFF'}>
+          <WindyWebcam apiData={this.state.apiData} />
           <Windy apiData={this.state.apiData} />
         </div>
       </div>
