@@ -1,14 +1,14 @@
 import React from 'react';
 import Axios from 'axios';
-import './App.css';
 import Windy from './components/appelWindy/WindyImages';
+import WindyWebcam from './components/appelWindy/WindyWebcam';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiData: '',
+      apiData: { webcams: [] },
     };
   }
 
@@ -18,16 +18,22 @@ class App extends React.Component {
     )
       .then((response) => response.data)
       .then((data) => {
-        const dataBase = data.result.webcams[2].image.current.preview;
+        const dataBase = data.result;
         this.setState({ apiData: dataBase });
-        console.log(this.state.apiData);
       });
   }
 
   render() {
     return (
       <div>
-        <Windy apiData={this.state.apiData} />
+        <div>
+          <header>
+            <WindyWebcam apiData={this.state.apiData} />
+          </header>
+        </div>
+        <div>
+          <Windy apiData={this.state.apiData} />
+        </div>
       </div>
     );
   }
