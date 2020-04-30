@@ -5,6 +5,7 @@ class GameWin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      Random: RandomNumber(0, 50),
     };
   }
 
@@ -13,7 +14,7 @@ class GameWin extends React.Component {
     return (
       <div>
         <p>Nice job ! You succeed to go to the {this.props.state.categoryTarget}</p>
-        <iframe src={apiDataBis.targetData?.result.webcams[RandomNumber(0, 101)]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
+        <iframe src={apiDataBis.targetData?.result.webcams[this.state.Random]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
         <p>You won 200Flouz to your jackpot !</p>
 
         <p>Let's go to the next mission !</p>
