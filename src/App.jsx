@@ -64,20 +64,6 @@ class App extends React.Component {
         };
         this.setState({ apiData: allData });
       }));
-    /* .then(Axios.spread((...responses) => {
-        let allData = [];
-        responses.forEach((response) => {
-          allData = [...allData, response.data];
-        });
-        this.setState({ apiData: allData });
-      }));
-      */
-
-    /* .then((data) => {
-        const dataBase = data.result;
-        this.setState({ apiData: dataBase });
-      });
-    */
   }
 
   startGame() {
