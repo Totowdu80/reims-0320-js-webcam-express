@@ -11,13 +11,13 @@ class GameStart extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="gameStartDiv">
-          <p>You are actually on the {this.props.state.categoryActual} of Bamako </p>
-          <p>Are you ready for you first mission ?</p>
-          <p>Great ! Then let's go for the next target localisation !</p>
-          <p>Which of this webcam is at the {this.props.state.categoryTarget}</p>
-        </div>
+      <div className="gameStartDiv">
+        <p className="p1">
+          You are actually on the {this.props.state.categoryActual} of <strong>{this.props.apiData.actualData?.result.webcams[RandomNumber(0, 50)]?.location.city} </strong>
+        </p>
+        <p className="p2">Are you ready for this new mission ?</p>
+        <p className="p3">Great ! Then let's go for the next target localisation !</p>
+        <p className="p4">Which of this webcam is at the <strong>{this.props.state.categoryTarget}</strong> ?</p>
         <div className="ImageDiv">
           <div className="ColumnDiv">
             <img src={this.props.apiData.choiceOneData?.result.webcams[RandomNumber(0, 50)]?.image.current.preview} className="Image" alt="Choice 1" />
@@ -29,7 +29,7 @@ class GameStart extends React.Component {
               This one !
             </button>
           </div>
-          <div>
+          <div className="ColumnDiv">
             <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 50)]?.image.daylight.preview} className="Image" alt="Choice 2" />
             <button
               className="buttonPlay"

@@ -1,17 +1,45 @@
-.gameStartDiv{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.ImageDiv{
-  display: flex;
-  justify-content: baseline;
-}
-.ColumnDiv{
+.gameStartON{
   
 }
-.Image{
+.gameStartDiv{
+  display: flex;
+ flex-direction: column;
+  align-items: center;
+}
+.pDiv{
+  display: flex;
+justify-content: center;
+flex-direction: column;
+}
+
+.p1{
+  font-size: 22px;
+}
+
+.p2{
+  font-size: 22px;
+}
+.p3{
+  font-size: 22px;
+}
+.p4{
+  font-size: 22px;
+}
+
+.ImageDiv{
+  margin: 10vh;
+
+  display: flex;
+}
+.ColumnDiv{
+  margin: 0vh 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Image{ 
   border-radius: 50vh;
   border: 1vh solid;
   border-color: rgb(192, 178, 117);
 }
+

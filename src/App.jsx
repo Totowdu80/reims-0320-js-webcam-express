@@ -120,7 +120,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <NavBar playerPoints={this.state.playerPoints} />
+          <NavBar playerPoints={this.state.playerPoints} className="Point" />
         </div>
         <div className={this.state.currentPage === 'homepage' ? 'homepageON' : 'affichageOFF'}>
           <Homepage startGame={this.startGame} />
