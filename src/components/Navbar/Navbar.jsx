@@ -13,7 +13,8 @@ class NavBar extends React.Component {
         <div>
           <nav>
             <ul className="navBar">
-              <li className="li">Score: {this.props.playerPoints} </li>
+              <li className="li__logo"><img className="navbar__logo" src="https://zupimages.net/up/20/18/clef.png" alt="Logo Webcam Express" /></li>
+              <li className="li">Total Jackpot : {this.props.playerPoints}€ </li>
             </ul>
           </nav>
         </div>
