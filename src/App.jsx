@@ -24,10 +24,23 @@ class App extends React.Component {
     this.startGame = this.startGame.bind(this);
     this.playChoiceOne = this.playChoiceOne.bind(this);
     this.playChoiceTwo = this.playChoiceTwo.bind(this);
+    this.gameAfter = this.gameAfter.bind(this);
     this.gameAfterWin = this.gameAfterWin.bind(this);
+    this.gameAfterLose = this.gameAfterLose.bind(this);
+    this.getApiData = this.getApiData.bind(this);
   }
 
   componentDidMount() {
+    this.getApiData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.playerPoints !== this.state.playerPoints) {
+      this.getApiData();
+    }
+  }
+
+  getApiData() {
     Axios.all([
       Axios.get(
         `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryActual}/limit=50?show=webcams:category,image,location,player&&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
@@ -68,9 +81,7 @@ class App extends React.Component {
   }
 
   startGame() {
-    this.setState({
-      currentPage: 'gamestart',
-    });
+    this.gameAfter(0);
   }
 
   playChoiceOne() {
@@ -97,26 +108,26 @@ class App extends React.Component {
     }
   }
 
-  gameAfterWin() {
+  gameAfter(points) {
+    const randomQuotes = [RandomQuote(), RandomQuote()];
+
+    const randomIndex = Math.floor(Math.random() * 2);
     this.setState({
       currentPage: 'gamestart',
       categoryActual: this.state.categoryTarget,
-      categoryTarget: RandomQuote(),
-      categoryFirstChoice: RandomQuote(),
-      categorySecondChoice: RandomQuote(),
-      playerPoints: this.state.playerPoints + 200,
+      categoryTarget: randomQuotes[0],
+      categoryFirstChoice: randomQuotes[randomIndex],
+      categorySecondChoice: randomQuotes[(randomIndex + 1) % 2],
+      playerPoints: points,
     });
   }
 
+  gameAfterWin() {
+    this.gameAfter(this.state.playerPoints + 200);
+  }
+
   gameAfterLose() {
-    this.setState({
-      currentPage: 'gamestart',
-      categoryActual: this.state.categoryTarget,
-      categoryTarget: RandomQuote(),
-      categoryFirstChoice: RandomQuote(),
-      categorySecondChoice: RandomQuote(),
-      playerPoints: 0,
-    });
+    this.gameAfter(0);
   }
 
   render() {
@@ -135,7 +146,7 @@ class App extends React.Component {
           <GameWin apiData={this.state.apiData} continueGame={this.gameAfterWin} state={this.state} />
         </div>
         <div className={this.state.currentPage === 'gamelose' ? 'gameloseON' : 'affichageOFF'}>
-          <GameLose apiData={this.state.apiData} restartGame={this.gameAfterWin} state={this.state} />
+          <GameLose apiData={this.state.apiData} restartGame={this.gameAfterLose} state={this.state} />
         </div>
       </div>
     );
