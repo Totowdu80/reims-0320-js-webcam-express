@@ -5,7 +5,6 @@ class GameStart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
@@ -13,7 +12,7 @@ class GameStart extends React.Component {
     return (
       <div>
         <div>
-          <p>You are actually on the {this.state.categoryActual} of Bamako </p>
+          <p>You are actually on the {this.props.state.categoryActual} of Bamako </p>
           <p>Are you ready for you first mission ?</p>
           <p>Great ! Then let's go for the next target localisation !</p>
           <p>Which of this webcam is at the {this.props.state.categoryTarget}</p>

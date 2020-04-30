@@ -1,13 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-import WindyImages from './components/appelWindy/WindyImages';
-import WindyWebcam from './components/appelWindy/WindyWebcam';
 import Homepage from './components/Homepage/Homepage';
 import RandomQuote from './components/RandomQuote/RandomQuote';
 import GameStart from './components/GameStart/GameStart';
 import GameWin from './components/GameWin/GameWin';
 import GameLose from './components/GameLose/GameLose';
 import './App.css';
+import NavBar from './components/Navbar/Navbar';
 
 
 class App extends React.Component {
@@ -20,10 +19,12 @@ class App extends React.Component {
       categoryFirstChoice: RandomQuote(),
       categorySecondChoice: RandomQuote(),
       categoryTarget: RandomQuote(),
+      playerPoints: 0,
     };
     this.startGame = this.startGame.bind(this);
     this.playChoiceOne = this.playChoiceOne.bind(this);
     this.playChoiceTwo = this.playChoiceTwo.bind(this);
+    this.gameAfterWin = this.gameAfterWin.bind(this);
   }
 
   componentDidMount() {
@@ -96,9 +97,34 @@ class App extends React.Component {
     }
   }
 
+  gameAfterWin() {
+    this.setState({
+      currentPage: 'gamestart',
+      categoryActual: this.state.categoryTarget,
+      categoryTarget: RandomQuote(),
+      categoryFirstChoice: RandomQuote(),
+      categorySecondChoice: RandomQuote(),
+      playerPoints: this.state.playerPoints + 200,
+    });
+  }
+
+  gameAfterLose() {
+    this.setState({
+      currentPage: 'gamestart',
+      categoryActual: this.state.categoryTarget,
+      categoryTarget: RandomQuote(),
+      categoryFirstChoice: RandomQuote(),
+      categorySecondChoice: RandomQuote(),
+      playerPoints: 0,
+    });
+  }
+
   render() {
     return (
       <div>
+        <div>
+          <NavBar playerPoints={this.state.playerPoints} />
+        </div>
         <div className={this.state.currentPage === 'homepage' ? 'homepageON' : 'affichageOFF'}>
           <Homepage startGame={this.startGame} />
         </div>
@@ -106,10 +132,10 @@ class App extends React.Component {
           <GameStart choiceOne={this.playChoiceOne} choiceTwo={this.playChoiceTwo} apiData={this.state.apiData} state={this.state} />
         </div>
         <div className={this.state.currentPage === 'gamewin' ? 'gamewinON' : 'affichageOFF'}>
-          <GameWin apiData={this.state.apiData} state={this.state} />
+          <GameWin apiData={this.state.apiData} continueGame={this.gameAfterWin} state={this.state} />
         </div>
         <div className={this.state.currentPage === 'gamelose' ? 'gameloseON' : 'affichageOFF'}>
-          <GameLose apiData={this.state.apiData} state={this.state} />
+          <GameLose apiData={this.state.apiData} restartGame={this.gameAfterWin} state={this.state} />
         </div>
       </div>
     );

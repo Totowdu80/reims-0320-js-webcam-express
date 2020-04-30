@@ -10,10 +10,21 @@ class GameLose extends React.Component {
   render() {
     return (
       <div>
-        <p>This is the Game Lose Page</p>
+        <p>Oh no ! You get lost in the way !</p>
+        <p>You've lost everything you won during your missions !</p>
+
+        <p>Do you want to try again ?</p>
+        <button
+          className="buttonPlay"
+          onClick={this.props.restartGame}
+          type="button"
+        >
+          Try again
+        </button>
       </div>
     );
   }
 }
+
 
 export default GameLose;

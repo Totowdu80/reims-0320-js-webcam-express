@@ -17,7 +17,13 @@ class GameWin extends React.Component {
         <p>You won 200Flouz to your jackpot !</p>
 
         <p>Let's go to the next mission !</p>
-        <button>Continue !</button>
+        <button
+          className="buttonPlay"
+          onClick={this.props.continueGame}
+          type="button"
+        >
+          Continue
+        </button>
       </div>
     );
   }
