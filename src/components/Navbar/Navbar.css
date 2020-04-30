@@ -1,8 +1,23 @@
 .navBar{
   display: flex;
- justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(195, 42, 15);
+  padding: 20px;
+  margin-top: 0px;
+  margin-bottom: 100px;
+  list-style: none;
 }
 
 .li{
-  list-style: none;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+.li__logo {
+  margin: 0px 20px;
+}
+
+.navbar__logo {
+  width: 40px;
 }
