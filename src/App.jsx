@@ -103,19 +103,13 @@ class App extends React.Component {
           <Homepage startGame={this.startGame} />
         </div>
         <div className={this.state.currentPage === 'gamestart' ? 'gamestartON' : 'affichageOFF'}>
-          <GameStart choiceOne={this.playChoiceOne} choiceTwo={this.playChoiceTwo} apiData={this.state.apiData} />
+          <GameStart choiceOne={this.playChoiceOne} choiceTwo={this.playChoiceTwo} apiData={this.state.apiData} state={this.state} />
         </div>
         <div className={this.state.currentPage === 'gamewin' ? 'gamewinON' : 'affichageOFF'}>
-          <GameWin />
+          <GameWin apiData={this.state.apiData} state={this.state} />
         </div>
         <div className={this.state.currentPage === 'gamelose' ? 'gameloseON' : 'affichageOFF'}>
-          <GameLose />
-        </div>
-        <div className="Webcam">
-          <WindyWebcam apiData={this.state.apiData} />
-        </div>
-        <div>
-          <WindyImages apiData={this.state.apiData} />
+          <GameLose apiData={this.state.apiData} state={this.state} />
         </div>
       </div>
     );

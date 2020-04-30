@@ -1,13 +1,10 @@
 import React from 'react';
+import RandomNumber from '../RandomQuote/RandomNumber';
 
 class GameStart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryActual: 'beach',
-      categoryTarget: 'forest',
-      categoryFirstChoice: 'lake',
-      categorySecondChoice: 'forest'
     };
   }
 
@@ -18,11 +15,11 @@ class GameStart extends React.Component {
           <p>You are actually on the {this.state.categoryActual} of Bamako </p>
           <p>Are you ready for you first mission ?</p>
           <p>Great ! Then let's go for the next target localisation !</p>
-          <p>Which of this webcam is at the {this.state.categoryTarget}</p>
+          <p>Which of this webcam is at the {this.props.state.categoryTarget}</p>
         </div>
         <div>
           <div>
-            <img src="https://www.bouger-voyager.com/wp-content/uploads/2018/03/plages-de-goa-6.jpg" alt="lol" />
+            <img src={this.props.apiData.choiceOneData?.result.webcams[RandomNumber(0, 101)]?.image.current.preview} alt="Choice 1" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceOne}
@@ -32,7 +29,7 @@ class GameStart extends React.Component {
             </button>
           </div>
           <div>
-            <img src="https://www.bouger-voyager.com/wp-content/uploads/2018/03/plages-de-goa-6.jpg" alt="lol" />
+            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 101)]?.image.current.preview} alt="Choice 2" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceTwo}
