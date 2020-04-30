@@ -1,4 +1,5 @@
 import React from 'react';
+import './gameLose.css';
 
 class GameLose extends React.Component {
   constructor(props) {
@@ -9,9 +10,9 @@ class GameLose extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="loseInterface__container">
         <p>Oh no ! You get lost in the way !</p>
-        <p>You've lost everything you won during your missions !</p>
+        <p>You have lost everything you won during your expedition !</p>
 
         <p>Do you want to try again ?</p>
         <button
