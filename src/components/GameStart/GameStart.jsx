@@ -4,10 +4,7 @@ class GameStart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryActual: 'beach',
-      categoryTarget: 'forest',
-      categoryFirstChoice: 'lake',
-      categorySecondChoice: 'forest'
+
     };
   }
 

@@ -3,7 +3,7 @@ const RandomQuote = () => {
   const textArray = [
     'beach',
     'forest',
-    'moutain',
+    'mountain',
   ];
   const randomIndex = Math.floor(Math.random() * textArray.length);
   const randomElement = textArray[randomIndex];
