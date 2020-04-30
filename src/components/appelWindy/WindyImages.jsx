@@ -14,13 +14,13 @@ class WindyImages extends React.Component {
     const apiDataTris = this.props.apiData
     return (
       <div className="Images">
-        <img src={apiDatabis.apiData2?.result.webcams[RandomNumber(0, 101)]?.image.daylight.preview} alt="windyImage" />
+        <img src={apiDatabis.choiceOneData?.result.webcams[RandomNumber(0, 101)]?.image.daylight.preview} alt="windyImage" />
         {console.log(apiDatabis.apiData2)}
-        <img src={apiDataTris.apiData3?.result.webcams[RandomNumber(0, 101)]?.image.daylight.preview} alt="windyImage" />
+        <img src={apiDataTris.choiceTwoData?.result.webcams[RandomNumber(0, 101)]?.image.daylight.preview} alt="windyImage" />
         {console.log(apiDataTris.apiData3)}
       </div>
     );
   }
 }
 
-export default WindyImages;
+export default WindyImages; 

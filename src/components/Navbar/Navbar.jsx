@@ -1,21 +1,26 @@
-import React from 'react'
+import React from 'react';
+import './Navbar.css';
 
-class NavBar extends React.Component{
-constructor(props){
-  super(props)
-  this.state={}
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <section>
+        <div>
+          <nav>
+            <ul className="navBar">
+              <li className="li">Score: </li>
+              <li className="li"> 'Set the Score'</li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    );
+  }
 }
 
-<section>
-  <nav>
-    <div></div>
-    <ul>
-      <li data-xcoord="0px" class="active">Home</li>
-      <li data-xcoord="160px">About</li>
-      <li data-xcoord="320px">Contact</li>
-      <li data-xcoord="480px">Store</li>
-    </ul>
-  </nav>
-</section>
-
-}
+export default NavBar;
