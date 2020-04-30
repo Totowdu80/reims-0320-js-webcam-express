@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+/*Source: https://prograide.com/pregunta/37284/comment-utiliser-les-polices-google-dans-reactjs*/
+
 .App {
   text-align: center;
 }
@@ -43,4 +46,12 @@ body {
 
 .affichageOFF {
   display: none;
+}
+.Point{
+  display: flex;
+  justify-content: center;
+}
+
+p{
+  font-family: 'Quicksand', sans-serif;
 }
