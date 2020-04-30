@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Project Actors
 
-This project was made by Anthony Lucci
+This project was made by Anthony Lucci and  Brian Lagaude
 
 ## Available Scripts
 

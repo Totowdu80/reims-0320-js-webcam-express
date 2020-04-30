@@ -1,6 +1,8 @@
-.gameStartON{
-  
-}
+/*.page{
+  background-image: url("https://zupimages.net/up/20/18/clef.png");
+  background-position: center;
+}*/
+
 .gameStartDiv{
   display: flex;
  flex-direction: column;
@@ -13,22 +15,21 @@ flex-direction: column;
 }
 
 .p1{
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .p2{
-  font-size: 22px;
+  font-size: 20px;
 }
 .p3{
-  font-size: 22px;
+  font-size: 20px;
 }
 .p4{
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .ImageDiv{
   margin: 10vh;
-
   display: flex;
 }
 .ColumnDiv{
@@ -41,5 +42,6 @@ flex-direction: column;
   border-radius: 50vh;
   border: 1vh solid;
   border-color: rgb(192, 178, 117);
+  min-width: 70vh;
 }
 
