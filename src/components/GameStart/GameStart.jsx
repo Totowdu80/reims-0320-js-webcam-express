@@ -5,7 +5,7 @@ class GameStart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      Random: RandomNumber(0, 10),
     };
   }
 
@@ -20,7 +20,8 @@ class GameStart extends React.Component {
         </div>
         <div>
           <div>
-            <img src={this.props.apiData.choiceOneData?.result.webcams[RandomNumber(0, 101)]?.image.current.preview} alt="Choice 1" />
+            <img src={this.props.apiData.choiceOneData?.result.webcams[this.state.Random]?.image.current.preview} alt="Choice 1" />
+            {console.log(this.state.Random)}
             <button
               className="buttonPlay"
               onClick={this.props.choiceOne}
@@ -30,7 +31,7 @@ class GameStart extends React.Component {
             </button>
           </div>
           <div>
-            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 101)]?.image.current.preview} alt="Choice 2" />
+            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 50)]?.image.current.preview} alt="Choice 2" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceTwo}
