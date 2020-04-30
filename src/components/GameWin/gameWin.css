@@ -1,0 +1,11 @@
+.winInterface__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoEmbed {
+  height: 500px;
+  width: 800px;
+}
