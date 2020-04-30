@@ -1,4 +1,5 @@
 import React from 'react';
+import RandomNumber from '../RandomQuote/RandomNumber';
 
 class GameWin extends React.Component {
   constructor(props) {
@@ -8,9 +9,15 @@ class GameWin extends React.Component {
   }
 
   render() {
+    const apiDataBis = this.props.apiData
     return (
       <div>
-        <p>This is the Game Win Page</p>
+        <p>Nice job ! You succeed to go to the {this.props.state.categoryTarget}</p>
+        <iframe src={apiDataBis.targetData?.result.webcams[RandomNumber(0, 101)]?.player.day.embed} enable="autoplay" className="videoEmbed" title="windyWebcam" />
+        <p>You won 200Flouz to your jackpot !</p>
+
+        <p>Let's go to the next mission !</p>
+        <button>Continue !</button>
       </div>
     );
   }
