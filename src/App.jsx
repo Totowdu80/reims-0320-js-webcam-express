@@ -29,16 +29,16 @@ class App extends React.Component {
   componentDidMount() {
     Axios.all([
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryActual}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryActual}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTarget}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTarget}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryFirstChoice}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryFirstChoice}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categorySecondChoice}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categorySecondChoice}/limit=50?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
     ])
       .then(Axios.spread((response1, response2, response3, response4) => {
