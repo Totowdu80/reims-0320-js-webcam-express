@@ -20,4 +20,4 @@ class WindyImages extends React.Component {
 
 export default WindyImages;
 //<img src={apiDatabis.webcams[0]?.image.current.preview} alt="windyImage" />
-  //      <img src={apiDatabis.webcams[4]?.image.current.preview} alt="windyImage" />
+//<img src={apiDatabis.webcams[4]?.image.current.preview} alt="windyImage" />
