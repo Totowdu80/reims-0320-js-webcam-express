@@ -13,7 +13,7 @@ class GameStart extends React.Component {
     return (
       <div>
         <div>
-          <p>You are actually on the {this.state.categoryActual} of Bamako </p>
+          <p>You are actually on the {this.props.state.categoryActual} of Bamako </p>
           <p>Are you ready for you first mission ?</p>
           <p>Great ! Then let's go for the next target localisation !</p>
           <p>Which of this webcam is at the {this.props.state.categoryTarget}</p>
@@ -31,7 +31,7 @@ class GameStart extends React.Component {
             </button>
           </div>
           <div>
-            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 50)]?.image.current.preview} alt="Choice 2" />
+            <img src={this.props.apiData.choiceTwoData?.result.webcams[this.state.Random]?.image.current.preview} alt="Choice 2" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceTwo}

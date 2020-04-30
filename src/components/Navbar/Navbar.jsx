@@ -13,7 +13,7 @@ class NavBar extends React.Component {
         <div>
           <nav>
             <ul className="navBar">
-              <li className="li">Score: </li>
+              <li className="li">Score: {this.props.playerPoints} </li>
               <li className="li"> 'Set the Score'</li>
             </ul>
           </nav>
