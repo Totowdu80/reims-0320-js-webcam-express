@@ -4,6 +4,17 @@
   align-items: center;
 }
 
+h1{
+  font-size: 48px;
+  font-family: 'Voltaire', sans-serif;
+}
+.titleRed{
+color: red;
+}
+.titleGrey{
+  color: rgb(121, 114, 114);
+}
+
 .homepage_logo {
   width: 200px;
 }
