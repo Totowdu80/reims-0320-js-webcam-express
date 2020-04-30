@@ -1,6 +1,7 @@
 .gameStartDiv{
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .ImageDiv{
   display: flex;

@@ -20,8 +20,7 @@ class GameStart extends React.Component {
         </div>
         <div className="ImageDiv">
           <div className="ColumnDiv">
-            <img src={this.props.apiData.choiceOneData?.result.webcams[this.state.Random]?.image.current.preview} className="Image" alt="Choice 1" />
-            {console.log(this.state.Random)}
+            <img src={this.props.apiData.choiceOneData?.result.webcams[RandomNumber(0, 50)]?.image.current.preview} className="Image" alt="Choice 1" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceOne}
@@ -31,7 +30,7 @@ class GameStart extends React.Component {
             </button>
           </div>
           <div>
-            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 50)]?.image.daylight.preview} alt="Choice 2" />
+            <img src={this.props.apiData.choiceTwoData?.result.webcams[RandomNumber(0, 50)]?.image.daylight.preview} className="Image" alt="Choice 2" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceTwo}
