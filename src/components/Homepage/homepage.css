@@ -7,3 +7,14 @@
 .homepage_logo {
   width: 200px;
 }
+.buttonPlay{
+  width: 20vh;
+  height: 5vh;
+  background-color: rgb(195, 42, 15);
+  border-radius: 5vh;
+  color: aliceblue;
+}
+
+.Explication{
+  font-size: 20px;
+}

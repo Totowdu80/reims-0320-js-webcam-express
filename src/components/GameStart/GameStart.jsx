@@ -1,5 +1,6 @@
 import React from 'react';
 import RandomNumber from '../RandomQuote/RandomNumber';
+import './gameStart.css';
 
 class GameStart extends React.Component {
   constructor(props) {
@@ -12,15 +13,15 @@ class GameStart extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="gameStartDiv">
           <p>You are actually on the {this.props.state.categoryActual} of Bamako </p>
           <p>Are you ready for you first mission ?</p>
           <p>Great ! Then let's go for the next target localisation !</p>
           <p>Which of this webcam is at the {this.props.state.categoryTarget}</p>
         </div>
-        <div>
-          <div>
-            <img src={this.props.apiData.choiceOneData?.result.webcams[this.state.Random]?.image.current.preview} alt="Choice 1" />
+        <div className="ImageDiv">
+          <div className="ColumnDiv">
+            <img src={this.props.apiData.choiceOneData?.result.webcams[this.state.Random]?.image.current.preview} className="Image" alt="Choice 1" />
             {console.log(this.state.Random)}
             <button
               className="buttonPlay"
@@ -31,7 +32,7 @@ class GameStart extends React.Component {
             </button>
           </div>
           <div>
-            <img src={this.props.apiData.choiceTwoData?.result.webcams[this.state.Random]?.image.current.preview} alt="Choice 2" />
+            <img src={this.props.apiData.choiceTwoData?.result.webcams[this.state.Random]?.image.current.preview} className="Image" alt="Choice 2" />
             <button
               className="buttonPlay"
               onClick={this.props.choiceTwo}

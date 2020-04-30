@@ -1,0 +1,16 @@
+.gameStartDiv{
+  display: flex;
+  justify-content: center;
+}
+.ImageDiv{
+  display: flex;
+  justify-content: baseline;
+}
+.ColumnDiv{
+  
+}
+.Image{
+  border-radius: 50vh;
+  border: 1vh solid;
+  border-color: rgb(192, 178, 117);
+}
