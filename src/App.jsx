@@ -16,29 +16,37 @@ class App extends React.Component {
     this.state = {
       apiData: { webcams: [] },
       currentPage: 'homepage',
-      category: RandomQuote(),
-      categoryTwo: RandomQuote(),
+      categoryActual: RandomQuote(),
+      categoryFirstChoice: RandomQuote(),
+      categorySecondChoice: RandomQuote(),
+      categoryTarget: RandomQuote(),
     };
+    this.startGame = this.startGame.bind(this);
+    this.playChoiceOne = this.playChoiceOne.bind(this);
+    this.playChoiceTwo = this.playChoiceTwo.bind(this);
   }
-
 
   componentDidMount() {
     Axios.all([
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryActual}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTwo}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryTarget}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
       Axios.get(
-        `https://api.windy.com/api/webcams/v2/list/category=${this.state.category}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categoryFirstChoice}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
+      ),
+      Axios.get(
+        `https://api.windy.com/api/webcams/v2/list/category=${this.state.categorySecondChoice}/limit=100?show=webcams:category,image,location,player&key=v8FJkDLEcXgmPza5EsdFFtKoSUIaTbX4`,
       ),
     ])
-      .then(Axios.spread((response1, response2, response3) => {
+      .then(Axios.spread((response1, response2, response3, response4) => {
         const allData = {
-          apiData1: response1.data,
-          apiData2: response2.data,
-          apiData3: response3.data,
+          actualData: response1.data,
+          targetData: response2.data,
+          choiceOneData: response3.data,
+          choiceTwoData: response4.data,
         };
         this.setState({ apiData: allData });
       }));
@@ -58,15 +66,44 @@ class App extends React.Component {
     */
   }
 
+  startGame() {
+    this.setState({
+      currentPage: 'gamestart',
+    });
+  }
+
+  playChoiceOne() {
+    if (this.state.categoryFirstChoice === this.state.categoryTarget) {
+      this.setState({
+        currentPage: 'gamewin',
+      });
+    } else {
+      this.setState({
+        currentPage: 'gamelose',
+      });
+    }
+  }
+
+  playChoiceTwo() {
+    if (this.state.categorySecondChoice === this.state.categoryTarget) {
+      this.setState({
+        currentPage: 'gamewin',
+      });
+    } else {
+      this.setState({
+        currentPage: 'gamelose',
+      });
+    }
+  }
 
   render() {
     return (
       <div>
         <div className={this.state.currentPage === 'homepage' ? 'homepageON' : 'affichageOFF'}>
-          <Homepage />
+          <Homepage startGame={this.startGame} />
         </div>
         <div className={this.state.currentPage === 'gamestart' ? 'gamestartON' : 'affichageOFF'}>
-          <GameStart />
+          <GameStart choiceOne={this.playChoiceOne} choiceTwo={this.playChoiceTwo} apiData={this.state.apiData} />
         </div>
         <div className={this.state.currentPage === 'gamewin' ? 'gamewinON' : 'affichageOFF'}>
           <GameWin />

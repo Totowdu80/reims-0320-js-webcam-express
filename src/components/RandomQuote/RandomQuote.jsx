@@ -4,13 +4,6 @@ const RandomQuote = () => {
     'beach',
     'forest',
     'moutain',
-    'harbor',
-    'bay',
-    'coast',
-    'resort',
-    'island',
-    'lake',
-    'landscape',
   ];
   const randomIndex = Math.floor(Math.random() * textArray.length);
   const randomElement = textArray[randomIndex];
@@ -18,3 +11,12 @@ const RandomQuote = () => {
 };
 
 export default RandomQuote;
+
+//    'water',
+//'harbor',
+//'bay',
+//'coast',
+//'resort',
+//'island',
+//'lake',
+//'landscape',
